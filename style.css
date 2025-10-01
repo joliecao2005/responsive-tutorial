@@ -1,22 +1,26 @@
-*{
+* {
   box-sizing: border-box;
   background-origin: border-box;
   margin: 0;
 }
 
-:root{
+:root {
   /* first two colours come from Kuroi's Manga Pallete Palette */
   /* https://lospec.com/palette-list/manga-pallete */
-  --col-01:#171219;
-  --col-02:#f2fbeb;
-  --col-03:#5252ff;
-  --col-04:#b6e878;
+  --col-01: #171219;
+  --col-02: #f2fbeb;
+  --col-03: #5252ff;
+  --col-04: #b6e878;
   font-size: 16px;
   /* scroll behaviour makes the <a> links to ids scroll to position over time rather than immediately */
   scroll-behavior: smooth;
 }
 
-body{
+@media (prefers-color-scheme: dark) {
+  :root {
+  }
+}
+body {
   padding: 1rem;
   background-color: var(--col-02);
   color: var(--col-01);
@@ -26,69 +30,96 @@ nav {
   margin-top: 1rem;
 }
 
-nav li{
+nav li {
   font-size: 1rem;
 }
 
-section{
+section {
   margin-bottom: 2rem;
 }
 
-h1{
+h1 {
   font-size: 3rem;
 }
 
-h2{
+h2 {
   font-size: 2rem;
 }
 
-p{
+p {
   font-size: 1rem;
   margin-top: 1rem;
 }
 
-figcaption{
+figcaption {
   width: fit-content;
 }
 
-dl ul{
+dl ul {
   margin-bottom: 0;
 }
 
-li{
+li {
   font-size: 1rem;
 }
 
-dd{
+dd {
   padding-left: 60px;
 }
 
-li ul{
+li ul {
   padding-left: 40px;
 }
 
-.img-wrapper{
+.img-wrapper {
   width: 100%;
   margin-bottom: 1.5rem;
 }
 
-.img-figure{
+.img-figure {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.article-img{
+.article-img {
   width: 80%;
 }
 
-.res-columns{
+.res-columns {
   column-width: 25rem;
 }
 
-#mode-button{
+#mode-button {
   float: right;
   /* note the use of position: sticky to keep the button on the page even with scrolling */
   position: sticky;
   top: 1rem;
+}
+
+/* media queries */
+/* check if user prefers reduce motion mode */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    scroll-behavior: auto;
+  }
+}
+
+/* media queries */
+/* check if width of screen is greater or equal to 800px */
+/* if yes apply ruleset */
+@media (orientation: landscape) and (width>=800px) {
+  :root {
+    font-size: 20px;
+  }
+  #modeButton {
+    padding: 1rem;
+  }
+}
+/* check if width of screen is greater or equal to 1200px */
+/* if yes apply ruleset */
+@media (width>=1200px) {
+  :root {
+    font-size: 24px;
+  }
 }
